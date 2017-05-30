@@ -1,0 +1,3 @@
+= headless-chrome-for-lambda
+
+a docker container to compile headless chrome for AWS lambda
