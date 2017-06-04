@@ -1,3 +1,42 @@
 = headless-chrome-for-lambda
 
 a docker container to compile headless chrome for AWS lambda
+
+== Get the headless_shell
+It compile a chrome `headless_shell` for Amazon Linux.
+You can get the container in link:https://hub.docker.com/r/outsideris/headless-chrome/[DockerHub].
+
+Run the docker container.
+
+```
+$ sudo docker run -dt --name headless-chrome headless-chrome:61.0.3114.0
+a00464b6789e763b7797001b636dab494d171126da666450af9a7a463ef6b03e
+
+$ sudo docker ps
+CONTAINER ID        IMAGE                         COMMAND             CREATED             STATUS              PORTS               NAMES
+a00464b6789e        headless-chrome:61.0.3114.0   "/bin/bash"         4 seconds ago       Up 3 seconds
+```
+
+Copy the `headless_shell` into your host machine.
+
+```
+$ sudo docker cp headless-chrome:/chrome/Chromium/src/out/Headless/headless_shell .
+```
+
+== Build
+To build chrome headless_shell, you should change the `CHROMIUM_VERSION`
+in `Dockerfile`.
+You can see the release tags link:https://chromium.googlesource.com/chromium/src.git/+refs[here].
+
+```
+$ sudo docker build -t headless-chrome:61.0.3114.0 .
+```
+
+It takes about 3 hours on AWS c4.xlarge EC2 instance.
+Also, it needs 8GB of RAM and 50GB disk at least.
+
+
+== References
+* link:https://medium.com/@marco.luethy/running-headless-chrome-on-aws-lambda-fa82ad33a9eb[How to get headless Chrome running on AWS Lambda]
+* link:https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md[Checking out and building Chromium on Linux]
+* link:https://www.chromium.org/developers/how-tos/get-the-code/working-with-release-branches[Working with Release Branches]
