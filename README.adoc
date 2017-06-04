@@ -4,7 +4,9 @@ a docker container to compile headless chrome for AWS lambda
 
 == Get the headless_shell
 It compile a chrome `headless_shell` for Amazon Linux.
-You can get the container in link:https://hub.docker.com/r/outsideris/headless-chrome/[DockerHub].
+You can get the compiled headless_shell in link:https://github.com/outsideris/headless-chrome-for-lambda/releases[releases].
+
+Or, You could extract form the container from link:https://hub.docker.com/r/outsideris/headless-chrome/[DockerHub]
 
 Run the docker container.
 
