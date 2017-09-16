@@ -20,7 +20,7 @@ RUN yum install -y \
     zlib.i686 httpd mod_ssl php php-cli python-psutil wdiff --enablerepo=epel
 
 # ref: https://chromium.googlesource.com/chromium/src.git/+refs
-ENV CHROMIUM_VERSION 61.0.3114.0
+ENV CHROMIUM_VERSION 62.0.3198.0
 
 # install dept_tools
 WORKDIR /chrome
